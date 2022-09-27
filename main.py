@@ -13,11 +13,10 @@ start_time = time.time()
 # idea3 - Eliminate row with deck title lowerprice datetime
 
 my_createDataBaseURL()
-with open("urlDBaz.txt") as f:
+with open("urlDBsmall.txt") as f:
     for line in f:
         line = line.replace("\n","")
-        print(line)
-#line = "https://www.cardmarket.com/en/YuGiOh/Products/Singles?mode=list&idCategory=5&idExpansion=0&searchString=__&idRarity=0&site=2"
+##        print(line)
         my_createDataBaseCards(line)
 my_duplicateDataBase()
 
