@@ -9,14 +9,14 @@ from datetime import date
 import time
 import requests
     
-def my_createDataBase():
+def my_createDataBaseCards(urlLine):
 
     with open("urlDBaz.txt") as dbfile:
         contList = dbfile.readlines()
 
     # Create DataBase
 
-    url = "https://www.cardmarket.com/en/YuGiOh/Products/Singles?mode=list&idCategory=5&idExpansion=0&searchString=ab&idRarity=0&perSite=20"
+    url = urlLine 
 
     page = requests.get(url)
 
@@ -27,7 +27,7 @@ def my_createDataBase():
 
 
     # DB with a or w
-    with open('cardDBaz.csv','a',encoding='utf8',newline='') as csvfile:
+    with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
         thereader = reader(csvfile,delimiter=',')
         thewriter = writer(csvfile)
 

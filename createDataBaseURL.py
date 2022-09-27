@@ -18,13 +18,11 @@ def my_createDataBaseURL():
     # ends in 1
     for i in alphabet:
       for j in alphabet:
-        f.write(firstPart + i + j + lastPart)
-        f.write('\n')
+        f.writelines(firstPart + i + j + lastPart)
 
     # other
     for i in alphabet:
       for j in alphabet:
         for num in number:
-          f.write(firstPart + i + j + secondPart + num)
-          f.write('\n')
+          f.writelines(firstPart + i + j + secondPart + num)
           
