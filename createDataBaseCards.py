@@ -27,7 +27,7 @@ def my_createDataBaseCards(urlLine):
 
 
     # DB with a or w
-    with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
+    with open('cardDBaz.csv','a',encoding='utf8',newline='') as csvfile:
         thereader = reader(csvfile,delimiter=',')
         thewriter = writer(csvfile)
 
