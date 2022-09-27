@@ -20,7 +20,7 @@ def my_createDataBaseCards(url):
 
 
     # DB with a or w
-    with open('cardDBaz.csv','a',encoding='utf8',newline='') as csvfile:
+    with open('cardDB2.csv','a',encoding='utf8',newline='') as csvfile:
         thewriter = writer(csvfile)
 
         header = ['Deck','Title','LowerPrice','DateTime'] 

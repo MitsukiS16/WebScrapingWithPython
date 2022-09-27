@@ -6,7 +6,6 @@
 
 
 def my_createDataBaseURL(): 
-
   with open('urlDB.txt', 'w') as f:
     alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     number = ['2','3','4','5','6','7','8','9','10','11','12','13','14','15']
@@ -18,11 +17,11 @@ def my_createDataBaseURL():
     # ends in 1
     for i in alphabet:
       for j in alphabet:
-        f.writelines(firstPart + i + j + lastPart)
+        f.writelines(firstPart + i + j + lastPart + "\n")
 
     # other
     for i in alphabet:
       for j in alphabet:
         for num in number:
-          f.writelines(firstPart + i + j + secondPart + num)
-          
+          f.writelines(firstPart + i + j + secondPart + num + "\n")
+        
