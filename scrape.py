@@ -4,6 +4,7 @@ from selenium import webdriver
 from csv import writer
 from csv import reader
 from selenium.webdriver.support.select import Select
+from datetime import date
 
 import time
 import requests
@@ -15,7 +16,6 @@ start_time = time.time()
 
 #for line in content_list:
 
-
 url = "https://www.cardmarket.com/en/YuGiOh/Products/Singles?mode=list&idCategory=5&idExpansion=0&searchString=ab&idRarity=0&site=2"
 
 
@@ -26,22 +26,15 @@ soup = BeautifulSoup(page.content,'html.parser')
 lists = soup.find_all('div',class_="row no-gutters")
 
 nCards = 0
-
-#create in different directory
-
-
+    
  
 #with open('carding.csv','w',encoding='utf8',newline='') as f:
 with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
     thereader = reader(csvfile,delimiter=',')
     thewriter = writer(csvfile)
 
-    # Create and check is header is not in file.csv
-    header = ['Deck','Title','LowerPrice'] 
-
-#    for row in thereader:  #it doesnt workkk
-#        if not header in thereader:
-#            thewriter.writerow(header)
+    header = ['Deck','Title','LowerPrice','DateTime'] 
+    thewriter.writerow(header)
 
     # Program Create DataBase
 
@@ -49,6 +42,8 @@ with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
         deck = list.find('a',class_="yugiohExpansionIcon")
         title = list.find('div',class_="col-10")
         lowerprice = list.find('div',class_="col-price pr-sm-2")
+        datetime = date.today()
+
 
         if deck is not None: 
             deck = list.find('a',class_="yugiohExpansionIcon").text
@@ -59,7 +54,8 @@ with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
         if lowerprice is not None: 
             lowerprice = list.find('div',class_="col-price pr-sm-2").text
 
-        info = [deck,title,lowerprice]
+
+        info = [deck,title,lowerprice,datetime]
         
         if deck != None and lowerprice != None:
             thewriter.writerow(info)
