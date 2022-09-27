@@ -7,73 +7,67 @@ from selenium.webdriver.support.select import Select
 import time
 import requests
 
+start_time = time.time()
 
-with open("abc3.txt") as f:
-    content_list = f.readlines()
+#with open("urlDBsmall.txt") as f:
+#    content_list = f.readlines()
 
-for line in content_list:
-    url = line
+#for line in content_list:
 
 
-    page = requests.get(url)
+url = "https://www.cardmarket.com/en/YuGiOh/Products/Singles?mode=list&idCategory=5&idExpansion=0&searchString=ab&idRarity=0&site=2"
 
-    soup = BeautifulSoup(page.content,'html.parser')
-    lists = soup.find_all('div',class_="row no-gutters")
 
-    nCards = 0
 
-    #create in different directory
+page = requests.get(url)
 
-    #with open('carding.csv','w',encoding='utf8',newline='') as f:
-    with open('carding.csv','w',encoding='utf8',newline='') as file:
-        thewriter = writer(file)
+soup = BeautifulSoup(page.content,'html.parser')
+lists = soup.find_all('div',class_="row no-gutters")
 
-        #se duas linhas, ffora 
-        header = ['Deck','Title','Price']
-        thewriter.writerow(header)
+nCards = 0
 
-        for list in lists:
-            deck = list.find('a',class_="yugiohExpansionIcon")
-            title = list.find('div',class_="col-10")
-            price = list.find('div',class_="col-price pr-sm-2")
+#create in different directory
 
-            if deck is not None: 
-                deck = list.find('a',class_="yugiohExpansionIcon").text
+#with open('carding.csv','w',encoding='utf8',newline='') as f:
+with open('cardDBaz.csv','w',encoding='utf8',newline='') as file:
+    thewriter = writer(file)
 
-            if title is not None: 
-                title = list.find('div',class_="col-10").text
+    #se duas linhas, ffora 
 
-            if price is not None: 
-                price = list.find('div',class_="col-price pr-sm-2").text
+    header = ['Deck','Title','LowerPrice']
+    thewriter.writerow(header)
 
-            info = [deck,title,price]
-            
-            if deck != None and price != None:
-                thewriter.writerow(info)
-                nCards = nCards + 1
+    for list in lists:
+        deck = list.find('a',class_="yugiohExpansionIcon")
+        title = list.find('div',class_="col-10")
+        lowerprice = list.find('div',class_="col-price pr-sm-2")
+
+        if deck is not None: 
+            deck = list.find('a',class_="yugiohExpansionIcon").text
+
+        if title is not None: 
+            title = list.find('div',class_="col-10").text
+
+        if lowerprice is not None: 
+            lowerprice = list.find('div',class_="col-price pr-sm-2").text
+
+        info = [deck,title,lowerprice]
+        
+        if deck != None and lowerprice != None:
+            thewriter.writerow(info)
+            nCards = nCards + 1
                 
 
 
- #   # check if there are lines with the same name
- #  if nCards >= 1:
- #       with open('abc3.csv','a',encoding='utf8',newline='') as file:
-    #  thewriter = writer(file)
-    # header = ['Deck','Title','Price']
-    # thewriter.writerow(header)
+print("--- %s seconds ---" % (time.time() - start_time))
 
-    # thewriter.writerow(info)
-
-
-
-#       next=driver.find_element_by_xpath("")
-#        next.click()
-#driver.close()
-
-
+# Check if file its not empty 
 #if nCards > 20:
 #    print("TO BIG")
 #else:
 #    print(nCards)
+# if not empty keep url in databaseurl
+
 
 #https://www.youtube.com/watch?v=m3liwOyJPC8
 # objetivo assim, ve so em 676 sites e nao em 10000sites
