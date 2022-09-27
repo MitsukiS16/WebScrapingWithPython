@@ -2,6 +2,7 @@ from pdb import line_prefix
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from csv import writer
+from csv import reader
 from selenium.webdriver.support.select import Select
 
 import time
@@ -28,14 +29,21 @@ nCards = 0
 
 #create in different directory
 
+
+ 
 #with open('carding.csv','w',encoding='utf8',newline='') as f:
-with open('cardDBaz.csv','w',encoding='utf8',newline='') as file:
-    thewriter = writer(file)
+with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
+    thereader = reader(csvfile,delimiter=',')
+    thewriter = writer(csvfile)
 
-    #se duas linhas, ffora 
+    # Create and check is header is not in file.csv
+    header = ['Deck','Title','LowerPrice'] 
 
-    header = ['Deck','Title','LowerPrice']
-    thewriter.writerow(header)
+#    for row in thereader:  #it doesnt workkk
+#        if not header in thereader:
+#            thewriter.writerow(header)
+
+    # Program Create DataBase
 
     for list in lists:
         deck = list.find('a',class_="yugiohExpansionIcon")
