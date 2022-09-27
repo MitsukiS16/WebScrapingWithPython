@@ -2,7 +2,7 @@ import pandas as pd
 
 def my_duplicateDataBase():
     file_name = "cardDBaz.csv"
-    file_name_output = "cardDBaz_withoutDuples.csv"
+    file_name_output = "cardDBaz.csv"
 
     df = pd.read_csv(file_name, sep=',')
  

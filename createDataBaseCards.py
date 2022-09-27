@@ -11,11 +11,6 @@ import requests
     
 def my_createDataBaseCards(url):
 
-    with open("urlDBaz.txt") as dbfile:
-        contList = dbfile.readlines()
-
-    # Create DataBase
-
     page = requests.get(url)
 
     soup = BeautifulSoup(page.content,'html.parser')
@@ -26,7 +21,6 @@ def my_createDataBaseCards(url):
 
     # DB with a or w
     with open('cardDBaz.csv','a',encoding='utf8',newline='') as csvfile:
-        thereader = reader(csvfile,delimiter=',')
         thewriter = writer(csvfile)
 
         header = ['Deck','Title','LowerPrice','DateTime'] 
@@ -57,3 +51,4 @@ def my_createDataBaseCards(url):
                 thewriter.writerow(info)
                 nCards = nCards + 1
                 
+
