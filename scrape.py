@@ -72,6 +72,3 @@ print("--- %s seconds ---" % (time.time() - start_time))
 #    print(nCards)
 # if not empty keep url in databaseurl
 
-
-#https://www.youtube.com/watch?v=m3liwOyJPC8
-# objetivo assim, ve so em 676 sites e nao em 10000sites
