@@ -12,10 +12,9 @@ start_time = time.time()
 # idea2 - Atualizo, checkando 1 se tem algo na pagina se nao avança
 
 my_createDataBaseURL()
-with open("urlDBsmall.txt") as f:
-    for lineurl in f:
+with open("urlDBaz.txt") as f:
+    for line in f:
         #print(lineurl)
-        line = lineurl
         my_createDataBaseCards(line)
 my_duplicateDataBase()
 
@@ -23,6 +22,6 @@ my_duplicateDataBase()
 
 print("--- %s seconds ---" % (time.time() - start_time))
 # TIME -> data base url - 1 url -> demora 2.9 segs
-# TIME -> data base url - urlDBaz (~30lines) -> demora 10.4 segs
-# TIME -> data base url - urlBDsmal (~600lines) -> demora ??? segs
+# TIME -> data base url - urlDBaz (~30lines) -> demora 10 segs
+# TIME -> data base url - urlBDsmal (~600lines) -> demora 228 segs
 # TIME -> data base url - urlBD (~10000lines) -> demora ??? segs

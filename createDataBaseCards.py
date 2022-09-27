@@ -9,14 +9,12 @@ from datetime import date
 import time
 import requests
     
-def my_createDataBaseCards(urlLine):
+def my_createDataBaseCards(url):
 
     with open("urlDBaz.txt") as dbfile:
         contList = dbfile.readlines()
 
     # Create DataBase
-
-    url = urlLine 
 
     page = requests.get(url)
 
