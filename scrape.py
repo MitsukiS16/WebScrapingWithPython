@@ -29,7 +29,7 @@ nCards = 0
     
  
 #with open('carding.csv','w',encoding='utf8',newline='') as f:
-with open('cardDBaz.csv','w',encoding='utf8',newline='') as csvfile:
+with open('cardDBaz.csv','a',encoding='utf8',newline='') as csvfile:
     thereader = reader(csvfile,delimiter=',')
     thewriter = writer(csvfile)
 
