@@ -1,3 +1,4 @@
+from concurrent.futures import thread
 from pdb import line_prefix
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -17,6 +18,7 @@ def my_createDataBaseCards(url):
     lists = soup.find_all('div',class_="row no-gutters")
 
     nCards = 0
+    lastURLSmalller = 0
 
 
     # DB with a or w
@@ -34,7 +36,6 @@ def my_createDataBaseCards(url):
             lowerprice = list.find('div',class_="col-price pr-sm-2")
             datetime = date.today()
 
-
             if deck is not None: 
                 deck = list.find('a',class_="yugiohExpansionIcon").text
 
@@ -44,11 +45,15 @@ def my_createDataBaseCards(url):
             if lowerprice is not None: 
                 lowerprice = list.find('div',class_="col-price pr-sm-2").text
 
-
             info = [deck,title,lowerprice,datetime]
             
             if deck != None and lowerprice != None:
                 thewriter.writerow(info)
                 nCards = nCards + 1
+                    #lastURLSmalller = lastURLSmalller + 1
+            #lastURLSmalller = 1
+
+        print(nCards)
+   
                 
 
