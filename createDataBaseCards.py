@@ -20,6 +20,7 @@ def my_createDataBaseCards(url):
     nCards = 0
     lastURLSmalller = 0
 
+    nURL = 14
 
     # DB with a or w
     with open('cardDB2.csv','a',encoding='utf8',newline='') as csvfile:
@@ -52,8 +53,9 @@ def my_createDataBaseCards(url):
                 nCards = nCards + 1
                     #lastURLSmalller = lastURLSmalller + 1
             #lastURLSmalller = 1
+        
 
-        print(nCards)
+        print(nCards)        
    
                 
 

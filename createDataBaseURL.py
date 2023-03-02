@@ -14,6 +14,8 @@ def my_createDataBaseURL():
     lastPart = "&idRarity=0&perSite=20"
     secondPart = "&idRarity=0&site="
 
+    count = 14
+
     # ends in 1
     for i in alphabet:
       for j in alphabet:
@@ -22,6 +24,7 @@ def my_createDataBaseURL():
     # other
     for i in alphabet:
       for j in alphabet:
+        countOneFift = 0
         for num in number:
           f.writelines(firstPart + i + j + secondPart + num + "\n")
         

@@ -6,7 +6,7 @@ import time
 
 start_time = time.time()
 
-data_base = "urlDBaz.txt"
+data_base = "urlDBsmall.txt"
 file_name = "cardDB2.csv"
 
 nLinesDataBaseURL = 0
@@ -23,7 +23,8 @@ nCards = 0
 with open(data_base) as f:
     for line in f:
         line = line.replace("\n","")
-##        print(line)
+
+        # print(line)
         my_createDataBaseCards(line)
 
 
