@@ -17,21 +17,23 @@ import requests
     
 def my_createDataBaseCards(url):
 
-    page = requests.get(url)
+    page = requests.get("https://www.cardmarket.com/en/YuGiOh/Expansions?order=alphabetical")
 
     soup = BeautifulSoup(page.content,'html.parser')
     lists = soup.find_all('div',class_="row no-gutters")
 
-    nCards = 0
-    lastURLSmalller = 0
 
-    nURL = 14
+
+
+
+
+
 
     # DB with a or w
-    with open('cardDB.csv','a',encoding='utf8',newline='') as csvfile:
+    with open('ExpDB.csv','a',encoding='utf8',newline='') as csvfile:
         thewriter = writer(csvfile)
 
-        header = ['Deck','Title'] 
+        header = ['ID','Header'] 
         thewriter.writerow(header)
 
         # Program Create DataBase

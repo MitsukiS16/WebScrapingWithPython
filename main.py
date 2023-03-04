@@ -6,8 +6,8 @@ import time
 
 start_time = time.time()
 
-data_base = "urlDBsmall.txt"
-file_name = "cardDB2.csv"
+data_base = "urlDB.txt" ## codigo repetido
+file_name = "cardDB.csv" ## codigo repetido
 
 nLinesDataBaseURL = 0
 nCards = 0
