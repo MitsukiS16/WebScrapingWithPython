@@ -38,6 +38,8 @@ def my_createDataBaseCards(url):
 
         for list in lists:
 
+            # create for, when one ncards == 0, break many count
+
             deck = list.find('a',class_="yugiohExpansionIcon")
 
             title = list.find('div',class_="col-10")
